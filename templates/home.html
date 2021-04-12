@@ -1,13 +1,15 @@
-<!-- templates/home.html -->
 {% load socialaccount %}
-
-<h1>HomePage</h1>
+<h1>Home Page</h1>
 {% if user.is_authenticated %}
-<p>Welcome {{ user.username }} !!!</p>
-<p><a href="{% url 'account_logout' %}">Log out</a>
-{% else %}
-<p><a href="{% url 'account_signup' %}">Sign Up</a></p>
-<p><a href="{% url 'account_login' %}">Log In </a></p>
+<p>Hi {{ user.username }}</p>
+<p><a href="{% url 'account_logout' %}">Logout</a></p>
 
-<p><a href="{% provider_login_url 'google' %}">Log In with Gmail</a></p>
+{% else %}
+
+<p><a href="{% url 'account_signup' %}">Signup</a></p>
+<p><a href="{% url 'account_login' %}">Login</a></p>
+<p><a href="{% provider_login_url 'google' %}">Login with Gmail</a></p>
+
+
 {% endif %}
+
